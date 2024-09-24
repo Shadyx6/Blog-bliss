@@ -6,5 +6,4 @@ const conf = {
     bucketId: String(import.meta.env.VITE_APPWRITE_BUCKET_ID),
     MCEapiKey: String(import.meta.env.VITE_MCE_API_KEY)
 }
-console.log(conf.MCEapiKey)
 export default conf;

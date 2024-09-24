@@ -142,7 +142,7 @@ function PostForm({ post }) {
           value={post?.status || "active"}
           {...register("status", { required: true })}
         />
-        <Btn type="submit" bgColor={post ? "bg-yellow-300" : 'bg-green-500'}>
+        <Btn type="submit" className={`${post ? "bg-blue-500" : 'bg-green-500'} p-2 rounded-lg mt-2 text-white`}>
           {post ? "Update" : "Submit"}
         </Btn>
       </div>
