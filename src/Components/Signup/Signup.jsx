@@ -19,7 +19,7 @@ function Signup() {
       setError("Please fill in all required fields.");
       return;
     }
-    console.log(data)
+ 
     if (data.password !== data.confirmPassword) {
       setError('Passwords do not match');
       return;

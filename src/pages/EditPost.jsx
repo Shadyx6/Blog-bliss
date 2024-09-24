@@ -6,11 +6,11 @@ import { useNavigate, useParams } from "react-router-dom";
 function EditPost() {
   const [post, setposts] = useState([]);
   const { slug } = useParams();
-  console.log(slug)
+ 
   const navigate = useNavigate()
   useEffect(() => {
     database.getOneBlog(slug).then((post) => {
-      console.log(post)
+     
         if(post) {
             setposts(post);
         }else{

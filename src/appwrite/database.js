@@ -16,7 +16,7 @@ export class Database {
     async createBlog(data) {
 
         try {
-            console.log(data)
+
             const { title, slug, content, featImage, status, userId } = data
             return await this.database.createDocument(conf.databaseId, conf.collectionId, slug, {
                 title,

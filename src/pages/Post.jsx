@@ -40,7 +40,6 @@ function Post() {
   }, [navigate, slug]);
 
   const deletePost = () => {
-    console.log('doing', post)
     database.deleteBlog(post.$id).then((status) => {
       if (status) {
         database.deleteImage(post.featImage);

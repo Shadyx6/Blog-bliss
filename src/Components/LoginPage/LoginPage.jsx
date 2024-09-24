@@ -24,7 +24,7 @@ const login = async (data) => {
             setError("Invalid email or password");
         }
     } catch (error) {
-        console.log(error); 
+
         setError(error.message);  
     }
 };

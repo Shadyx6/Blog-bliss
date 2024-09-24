@@ -9,7 +9,7 @@ import Btn from "../Btn/Btn";
 import Select from "../Select/Select";
 
 function PostForm({ post }) {
-  console.log(post)
+  
   const { register, handleSubmit, formState: {errors} , watch, setValue, control } = useForm({
     defaultValues: {
       title: post?.title || "",
@@ -19,7 +19,6 @@ function PostForm({ post }) {
       featImage: post?.featImage || "",
     },
   });
-console.log(errors)
   const navigate = useNavigate();
   const user = useSelector((state) => state.auth.userData);
 
@@ -38,7 +37,7 @@ console.log(errors)
         try {
        
           let img = await database.getImagePreview(post.featImage);
-          console.log(img)
+      
           setImage(img.href);
         } catch (error) {
           console.log(error);
@@ -50,12 +49,12 @@ console.log(errors)
 
   const Submit = async (data) => {
     let uploadedImage = null;
-    console.log(post)
+ 
     if (data.image && data.image[0]) {
-      console.log(data.image)
+   
       uploadedImage = await database.uploadImage(data.image[0]);
       if (post?.featImage) {
-        console.log('deleting old')
+    
         await database.deleteImage(post.featImage); // delete old image
       }
     }
@@ -66,7 +65,7 @@ console.log(errors)
         featImage: uploadedImage ? uploadedImage.$id : post.featImage
       });
       if (updatedPost) {
-        console.log(updatedPost)
+  
         navigate(`/blog/${updatedPost.$id}`);
       }
     } else {
@@ -74,7 +73,7 @@ console.log(errors)
       if (img) {
         data.featImage = img.$id;
       }
-      console.log(user)
+   
       const newPost = await database.createBlog({
         ...data,
         userId: user.userData.$id,
@@ -143,7 +142,7 @@ console.log(errors)
           value={post?.status || "active"}
           {...register("status", { required: true })}
         />
-        <Btn type="submit" bgColor={post ? "bg-green-300" : undefined}>
+        <Btn type="submit" bgColor={post ? "bg-yellow-300" : 'bg-green-500'}>
           {post ? "Update" : "Submit"}
         </Btn>
       </div>
