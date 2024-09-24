@@ -2,6 +2,7 @@ import React from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { Controller } from "react-hook-form";
 import conf from "./conf/config";
+console.log(conf.MCEapiKey)
 export default function ({ name, control, defaultValue = "", label }) {
   return (
     <div className="w-full">
